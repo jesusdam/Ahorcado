@@ -13,14 +13,13 @@ import javax.swing.JButton;
  */
 public class VenatanaAhorcado extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VenatanaAhorcado
-     */
+  
     public VenatanaAhorcado() {
         initComponents();
     }
 private void chequeaBoton(JButton botonPulsado){
     botonPulsado.setVisible(false);
+    
     
 }
 
