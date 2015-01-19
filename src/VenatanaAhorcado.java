@@ -20,8 +20,38 @@ public class VenatanaAhorcado extends javax.swing.JFrame {
 private void chequeaBoton(JButton botonPulsado){
     botonPulsado.setVisible(false);
     
+    private void chequeaLetra(String letra){
+        //guardo el texto de ka pantalla en un string auxiliar
+        
+        String palabraConGuiones = jLabel1.getText();
+        //paso la letra a mayuscula
+        letra = toUpperCase();
+        
+        if (palabraOculta.contains(letra)){
+            //desocultar la letra en la pantalla
+            for (int i=0; i<palabraOculta.lenght();i++){
+                if (palabraOculta.charAT(i)== letra.charAt(0)){
+                 //si hemos llegado aqui es porque la letra esta en la palabraOculta
+                    //palabraConGuiones[2*i] = letra;
+                    palabraConGuiones = palabraConGuiones.substring(0, 2*i)+
+                            letra +
+                            palabraConGuiones.substring(2*i + 1);
+                }
+            }
+            jLabel1.setText(palabraConGuiones);
+            //quitar el guion abajo
+        }
+        else {//la letra no esta en la palabra oculta
+            numeroFallos++;
+            jLabel2.setText(String.valueOf(numeroFallos));
+            
+        }
+        }
     
-}
+    }
+    
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,7 +102,7 @@ private void chequeaBoton(JButton botonPulsado){
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 240, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,10 +437,6 @@ private void chequeaBoton(JButton botonPulsado){
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,6 +504,10 @@ private void chequeaBoton(JButton botonPulsado){
                         .addComponent(jButton24)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
